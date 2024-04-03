@@ -5,7 +5,7 @@
 16번(A3) : 왼쪽 조이스틱 x
 17번(A2) : 왼쪽 조이스틱 y
 조립 후 모터 90도 정렬기준
-2,3,4,5번을 맨 위 모터부터 연결한다.
+4,5,6,7번을 맨 위 모터부터 연결한다.
 */
 #include<Servo.h>
 //90도기준 맨위부터 첫번째
@@ -24,8 +24,8 @@ void setup() {
   //90도정렬
   motor[0].attach(2);
   motor[0].write(93);
-  for(int i=1 ; i<=3 ; i++){
-    motor[i].attach(i+2);
+  for(int i=4 ; i<=7 ; i++){
+    motor[i].attach(i);
     motor[i].write(90);
   }
 }
@@ -46,46 +46,46 @@ int val(int m, int ang){
 void loop() {
 
   //모터방향과 조이스틱방향이 맞도록 4개 제어
-  if(analogRead(14)<=0){
+  if(analogRead(A0)<=0){
     //지금위치에서 1증가
     int start = motor[0].read();
     motor[0].write(val(0,start+1));
     delay(speed);
   }
-  else if(analogRead(14)>=1023){
+  else if(analogRead(A0)>=1023){
     int start = motor[0].read();
     motor[0].write(val(0,start-1));
     delay(speed);
   }
 
-  if(analogRead(15)<=0){
+  if(analogRead(A1)<=0){
     int start = motor[1].read();
     motor[1].write(val(1,start-1));
     delay(speed);
   } 
-  else if(analogRead(15)>=1023){
+  else if(analogRead(A1)>=1023){
     int start = motor[1].read();
     motor[1].write(val(1,start+1));
     delay(speed);
   }
 
-  if(analogRead(16)<=0){
+  if(analogRead(A4)<=0){
     int start = motor[2].read();
     motor[2].write(val(2,start+1));
     delay(speed);
   } 
-  else if(analogRead(16)>=1023){
+  else if(analogRead(A4)>=1023){
     int start = motor[2].read();
     motor[2].write(val(2,start-1));
     delay(speed);
   }
 
-  if(analogRead(17)<=0){
+  if(analogRead(A5)<=0){
     int start = motor[3].read();
     motor[3].write(val(3,start-1));
     delay(speed);
   } 
-  else if(analogRead(17)>=1023){
+  else if(analogRead(A5)>=1023){
     int start = motor[3].read();
     motor[3].write(val(3,start+1));
     delay(speed);

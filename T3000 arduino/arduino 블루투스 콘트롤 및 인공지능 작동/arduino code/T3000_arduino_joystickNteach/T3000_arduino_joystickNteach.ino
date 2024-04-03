@@ -1,10 +1,10 @@
 /*
 핀맵
-Rx -> 1번
-Tx -> 0번
+hc-06의Rx -> 아두이노의 1번
+hc-06의Tx -> 아두이노의 0번
 
 조립 후 모터 90도 정렬기준
-2,3,4,5번을 맨 위 모터부터 연결한다.
+4,5,6,7번을 맨 위 모터부터 연결한다.
 
 모터 관련 배열도 맨 위부터 첫 번째 값이다
 
@@ -38,9 +38,9 @@ int limit[4][2] = {{90, 180},
 int speed = 2;
 //색 인식시 위치 값
 int ini_pos[3] = {90,90,90};
-int ball_pos[3] = {65,180,90};
-int whi_pos[3] = {40,120,10};
-int org_pos[3] = {40,120,180};
+int ball_pos[3] = {115,0,90};
+int whi_pos[3] = {140,60,10};
+int org_pos[3] = {140,60,180};
 //인공지능 모델 라벨
 String label[3] = {"White", "Orange", "None"};
 //문자열이 배열에 들었는가
@@ -81,7 +81,7 @@ void pos_move(int end_pos[]){
 }
 // 집게발 조작 함수 -1 : 벌리기, 1 : 집기
 void crab(int n){
-  while(motor[0].read() != (n==1 ? 96 : 0)){
+  while(motor[0].read() != (n==1 ? limit[0][1] : limit[0][0])){
     motor_angle[0] += n;
     motor[0].write(motor_angle[0]);
     delay(speed * 2);
