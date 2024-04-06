@@ -1,9 +1,9 @@
 /*
 아두이노 핀맵
-14번(A5) : 오른쪽 조이스틱 y
-15번(A4) : 오른쪽 조이스틱 x
-16번(A3) : 왼쪽 조이스틱 x
-17번(A2) : 왼쪽 조이스틱 y
+(A9) : 오른쪽 조이스틱 y
+(A1) : 오른쪽 조이스틱 x
+(A4) : 왼쪽 조이스틱 x
+(A5) : 왼쪽 조이스틱 y
 조립 후 모터 90도 정렬기준
 4,5,6,7번을 맨 위 모터부터 연결한다.
 */
@@ -43,52 +43,42 @@ int val(int m, int ang){
   }
 }
 
+//mode에 따라 증가또는 감소
+void motor_move(int motor_num, int mode){
+  int start = motor[motor_num].read();
+  motor[motor_num].write(val(motor_num),start+mode);
+  delay(speed);
+}
+
 void loop() {
 
   //모터방향과 조이스틱방향이 맞도록 4개 제어
   if(analogRead(A0)<=0){
-    //지금위치에서 1증가
-    int start = motor[0].read();
-    motor[0].write(val(0,start+1));
-    delay(speed);
-  }
+    motor_move(0,1);
+    }
   else if(analogRead(A0)>=1023){
-    int start = motor[0].read();
-    motor[0].write(val(0,start-1));
-    delay(speed);
+    motor_move(0,-1);
   }
 
   if(analogRead(A1)<=0){
-    int start = motor[1].read();
-    motor[1].write(val(1,start-1));
-    delay(speed);
+    motor_move(1,1);
   } 
   else if(analogRead(A1)>=1023){
-    int start = motor[1].read();
-    motor[1].write(val(1,start+1));
-    delay(speed);
+    motor_move(1,-1);
   }
 
   if(analogRead(A4)<=0){
-    int start = motor[2].read();
-    motor[2].write(val(2,start+1));
-    delay(speed);
-  } 
+    motor_move(2,1);
+    } 
   else if(analogRead(A4)>=1023){
-    int start = motor[2].read();
-    motor[2].write(val(2,start-1));
-    delay(speed);
-  }
+    motor_move(2,-1);
+    }
 
   if(analogRead(A5)<=0){
-    int start = motor[3].read();
-    motor[3].write(val(3,start-1));
-    delay(speed);
-  } 
+    motor_move(3,-1);
+    } 
   else if(analogRead(A5)>=1023){
-    int start = motor[3].read();
-    motor[3].write(val(3,start+1));
-    delay(speed);
+    motor_move(3,1);
   }
 
 }
