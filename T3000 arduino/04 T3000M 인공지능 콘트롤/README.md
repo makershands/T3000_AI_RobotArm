@@ -3,4 +3,4 @@ arduino_angle_set.apk
 
 
 T3000A_AI_controller.ino
-.ino파일은 아두이노에 업로드
+파일은 아두이노에 업로드
