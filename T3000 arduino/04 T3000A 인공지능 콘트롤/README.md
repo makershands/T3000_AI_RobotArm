@@ -1,4 +1,4 @@
-arduino_angle_set.apk
+T3000A_AI_Robotarm.apk
 앱은 안드로이드에 다운로드 받아 설치
 
 
