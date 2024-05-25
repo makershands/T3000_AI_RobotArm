@@ -46,7 +46,7 @@ int val(int m, int ang){
 //mode에 따라 증가또는 감소
 void motor_move(int motor_num, int mode){
   int start = motor[motor_num].read();
-  motor[motor_num].write(val(motor_num),start+mode);
+  motor[motor_num].write(val(motor_num,start+mode));
   delay(speed);
 }
 
