@@ -34,7 +34,7 @@ String received;
 Servo motor[4];
 
 //모터 각도 배열
-int motor_angle[4] = { 93,90,90,90 };
+int motor_angle[4] = { 93,90,80,90 };
 
 //모터 상태 배열
 int motor_state[4] = { 0,0,0,0 };
@@ -49,7 +49,7 @@ int limit[4][2] = { {90, 180},
 int speed = 9;
 
 //색 인식시 위치 값
-int ini_pos[3] = { 90,90,90 };
+int ini_pos[3] = { 90,80,90 };
 int ball_pos[3] = { 115,0,90 };
 int whi_pos[3] = { 140,60,10 };
 int org_pos[3] = { 140,60,180 };
