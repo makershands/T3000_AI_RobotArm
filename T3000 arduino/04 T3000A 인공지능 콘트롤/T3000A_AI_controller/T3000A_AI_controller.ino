@@ -49,7 +49,7 @@ int limit[4][2] = { {90, 180},
 int speed = 9;
 
 //색 인식시 위치 값
-int ini_pos[3] = { 80,80,90 };
+int ini_pos[3] = { 90,90,90 };
 int ball_pos[3] = { 115,0,90 };
 int whi_pos[3] = { 140,60,10 };
 int org_pos[3] = { 140,60,180 };
