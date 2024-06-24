@@ -34,7 +34,7 @@ String received;
 Servo motor[4];
 
 //모터 각도 배열
-int motor_angle[4] = { 93,80,80,90 };
+int motor_angle[4] = { 93,90,90,90 };
 
 //모터 상태 배열
 int motor_state[4] = { 0,0,0,0 };
