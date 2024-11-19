@@ -1,6 +1,6 @@
 // 소프트웨어 시리얼을 이용할 때는 Serial3 대신 mySerial 부분을 주석해제 후 사용
 #include <SoftwareSerial.h>
-SoftwareSerial mySerial(2, 3); // //블루투스 모듈의 vcc는 5V, GND는 GND, TXD는 2번핀, RXD는 3번핀에 꼽을 것
+SoftwareSerial mySerial(2, 3); //블루투스 모듈의 vcc는 5V, GND는 GND, TXD는 2번핀, RXD는 3번핀에 꼽을 것
 
 void setup() {
   //통신 설정
