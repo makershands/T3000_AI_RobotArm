@@ -13,7 +13,7 @@
 4,5,6,7번을 맨 위 글리퍼(집개) 모터부터 연결한다.
 
 */
-#include<Servo.h>
+#include <Servo.h>
 //90도기준 맨위부터 첫번째
 Servo motor[4];
 
@@ -65,31 +65,31 @@ void motor_move(int motor_num, int mode){
 void loop() {
 
   //모터방향과 조이스틱방향이 맞도록 4개 제어
-  if(analogRead(A0)<=0){
+  if(analogRead(A1)<=50){
     motor_move(0,1);
     }
-  else if(analogRead(A0)>=1023){
+  else if(analogRead(A1)>=980){
     motor_move(0,-1);
   }
 
-  if(analogRead(A1)<=0){
+  if(analogRead(A0)<=50){
     motor_move(1,1);
   } 
-  else if(analogRead(A1)>=1023){
+  else if(analogRead(A0)>=980){
     motor_move(1,-1);
   }
 
-  if(analogRead(A4)<=0){
-    motor_move(2,-1);
-    } 
-  else if(analogRead(A4)>=1023){
+  if(analogRead(A5)<=50){
     motor_move(2,1);
+    } 
+  else if(analogRead(A5)>=980){
+    motor_move(2,-1);
     }
 
-  if(analogRead(A5)<=0){
+  if(analogRead(A4)<=50){
     motor_move(3,-1);
     } 
-  else if(analogRead(A5)>=1023){
+  else if(analogRead(A4)>=980){
     motor_move(3,1);
   }
 
